@@ -11,4 +11,12 @@ dependencies = [
 
 [build-system]
 requires = ["setuptools>=61.0"]
+<<<<<<< HEAD
 build-backend = "setuptools.build_meta"
+=======
+<<<<<<< HEAD
+build-backend = "setuptools.build_meta"
+=======
+build-backend = "setuptools.build_meta"
+>>>>>>> 5bcd18a (Add project structure, core LLM, trading utilities, and scripts)
+>>>>>>> 3d893a2 (Add project structure, core LLM, trading utilities, and scripts)
