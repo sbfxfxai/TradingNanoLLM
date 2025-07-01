@@ -1,0 +1,16 @@
+torch>=2.0.0
+transformers>=4.35.0
+numpy>=1.26.0
+tqdm>=4.66.0
+accelerate>=0.20.0
+tokenizers>=0.15.0
+
+[dev]
+pytest>=7.0.0
+black>=23.0.0
+flake8>=6.0.0
+mypy>=1.0.0
+
+[finetune]
+datasets>=2.14.0
+wandb>=0.15.0

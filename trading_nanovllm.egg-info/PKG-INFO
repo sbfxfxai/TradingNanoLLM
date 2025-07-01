@@ -1,0 +1,113 @@
+Metadata-Version: 2.4
+Name: trading-nanovllm
+Version: 0.1.0
+Summary: Lightweight LLM for trading tasks with optimized inference
+Author: TradingNanoLLM Contributors
+License: MIT
+Project-URL: Homepage, https://github.com/your-username/TradingNanoLLM
+Project-URL: Repository, https://github.com/your-username/TradingNanoLLM.git
+Project-URL: Issues, https://github.com/your-username/TradingNanoLLM/issues
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Financial and Insurance Industry
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Office/Business :: Financial :: Investment
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: torch>=2.0.0
+Requires-Dist: transformers>=4.35.0
+Requires-Dist: numpy>=1.26.0
+Requires-Dist: tqdm>=4.66.0
+Requires-Dist: accelerate>=0.20.0
+Requires-Dist: tokenizers>=0.15.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0.0; extra == "dev"
+Requires-Dist: black>=23.0.0; extra == "dev"
+Requires-Dist: flake8>=6.0.0; extra == "dev"
+Requires-Dist: mypy>=1.0.0; extra == "dev"
+Provides-Extra: finetune
+Requires-Dist: datasets>=2.14.0; extra == "finetune"
+Requires-Dist: wandb>=0.15.0; extra == "finetune"
+Dynamic: license-file
+
+# TradingNanoLLM
+
+A lightweight LLM implementation for trading tasks, built from scratch.
+
+## Key Features
+- 🚀 **Fast Offline Inference**: Optimized for low-latency trading decisions
+- 📖 **Readable Codebase**: Clean Python code in ~1,200 lines
+- ⚡ **Optimization Suite**: Prefix caching, tensor parallelism, Torch compilation, CUDA graphs
+- 📈 **Trading-Specific**: Fine-tuned for sentiment analysis and trade signal generation
+
+## Installation
+```bash
+pip install git+https://github.com/your-username/TradingNanoLLM.git
+```
+
+Or install locally:
+```bash
+git clone https://github.com/your-username/TradingNanoLLM.git
+cd TradingNanoLLM
+pip install -e .
+```
+
+## Quick Start
+See `example.py` for usage:
+```python
+from trading_nanovllm import TradingLLM, SamplingParams
+from trading_nanovllm.trading_utils import analyze_sentiment, generate_trade_signal
+
+llm = TradingLLM("Qwen/Qwen2-0.5B-Instruct", enforce_eager=True)
+sampling_params = SamplingParams(temperature=0.6, max_tokens=256)
+
+news = "Apple reports record-breaking Q2 earnings."
+sentiment = analyze_sentiment(news, llm, sampling_params)
+print(f"Sentiment: {sentiment}")
+
+data = "AAPL price: $150, RSI: 70, MACD: Bullish"
+signal = generate_trade_signal(data, llm, sampling_params)
+print(f"Trade Signal: {signal}")
+```
+
+## Benchmark
+See `bench.py` for benchmarking. Example configuration:
+- Hardware: RTX 4070 (8GB VRAM)
+- Model: Qwen2-0.5B-Instruct
+- Requests: 256 sequences, input/output length 100–1024 tokens
+
+## Fine-tuning
+Use `finetune.py` to fine-tune the model on trading-specific data:
+```bash
+python finetune.py
+```
+
+## Project Structure
+```
+trading_nanovllm/
+├── __init__.py
+├── llm.py                    # Main LLM implementation
+├── sampling.py               # Sampling parameters
+├── optimizations/
+│   ├── __init__.py
+│   └── prefix_caching.py     # Prefix caching optimization
+└── trading_utils/
+    ├── __init__.py
+    ├── sentiment.py          # Sentiment analysis
+    └── signals.py            # Trade signal generation
+```
+
+## Performance
+Target: 1400+ tokens/s on RTX 4070 (inspired by Nano-vLLM)
+
+## Contributing
+See `CONTRIBUTING.md` for guidelines.
+
+## License
+MIT License

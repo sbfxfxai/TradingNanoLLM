@@ -1,0 +1,10 @@
+[
+  {
+    "input": "Analyze the sentiment of the following financial news: Apple reports record-breaking Q2 earnings with 15% revenue growth.",
+    "output": "Sentiment: Positive. This news indicates strong financial performance with significant revenue growth, which is likely to have a positive impact on Apples stock price and investor confidence."
+  },
+  {
+    "input": "Generate a trade signal based on: AAPL price: , RSI: 70, MACD: Bullish crossover, Volume: High",
+    "output": "Trade Signal: Buy. The bullish MACD crossover combined with high volume suggests strong upward momentum. However, RSI at 70 indicates the stock is approaching overbought territory, so consider partial position sizing."
+  }
+]
